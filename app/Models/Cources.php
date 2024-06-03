@@ -13,4 +13,9 @@ class Cources extends Model
     protected $table = 'cources';
 
     protected $fillable = ['name', 'category', 'desc'];
+
+   // public function students(){
+        //return $this->hasMany(Student::class);
+   // }
+//}
 }

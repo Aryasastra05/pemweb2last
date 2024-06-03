@@ -22,6 +22,7 @@
                         <th>NIM</th>
                         <th>Major</th>
                         <th>Class</th>
+                        <th>Course</th>
                         <th>Action</th>
                     </tr>
 
@@ -33,6 +34,7 @@
                         <td>{{ $student->nim }}</td>
                         <td>{{ $student->major }}</td>
                         <td>{{ $student->class }}</td>
+                        <td>{!! $student->course_id ?? '<span class="badge bg-danger">Belum Mengikuti Course</span>' !!}</td>
                         <td>
                             <a href="{{ route('student.edit', $student->id) }}" class="btn btn-warning">Edit</a>
                             <a href="#" class="btn btn-danger">Delete</a>
