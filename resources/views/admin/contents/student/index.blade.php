@@ -35,9 +35,14 @@
                         <td>{{ $student->major }}</td>
                         <td>{{ $student->class }}</td>
                         <td>{!! $student->course_id ?? '<span class="badge bg-danger">Belum Mengikuti Course</span>' !!}</td>
-                        <td>
+                        <td class="d-flex">
                             <a href="{{ route('student.edit', $student->id) }}" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <form action="/admin/student/delete/{{ $student->id }} " method="post">
+                              @method('DELETE')
+                              @csrf
+                          
+                              <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" >Delete</button>
+                            </form>
                         </td>
                     </tr>
 

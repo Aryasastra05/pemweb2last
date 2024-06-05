@@ -13,7 +13,7 @@
     <section class="section">
       <div class="card">
         <div class="card-body">
-            <a href="/admin/student/create" class="btn btn-primary m-3">Cources</a>
+            <a href="/admin/cources/create" class="btn btn-primary m-3">+ Cources</a>
             <div class="table-responsive">
                 <table class="table">
                     <tr>
@@ -31,9 +31,14 @@
                         <td>{{ $cource->name }}</td>
                         <td>{{ $cource->category }}</td>
                         <td>{{ $cource->desc }}</td>
-                        <td>
-                            <a href="#" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                        <td class="d-flex">
+                          <a href="{{ route('cources.edit', $cource->id) }}" class="btn btn-warning">Edit</a>
+                          <form action="/admin/cources/delete/{{ $cource->id }} " method="post">
+                            @method('DELETE')
+                            @csrf
+                        
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" >Delete</button>
+                          </form>
                         </td>
                     </tr>
 
