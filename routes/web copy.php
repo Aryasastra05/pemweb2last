@@ -1,29 +1,14 @@
 <?php
-
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourcesController;
-
-
-
-
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/dashboard', function () {
-    //return view('dashboard');
-//})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('admin/dashboard', [DashboardController::class, 'index']);
 
 // route untuk menampilkan student
 Route::get('admin/student', [StudentController::class, 'index']);
@@ -60,6 +45,4 @@ Route::delete('admin/cources/delete/{id}', [CourcesController::class, 'destroy']
 
 // route untuk  menghapus student
 Route::delete('admin/student/delete/{id}', [StudentController::class, 'destroy']);
-});
 
-require __DIR__.'/auth.php';
