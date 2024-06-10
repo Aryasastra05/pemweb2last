@@ -27,6 +27,6 @@ class Student extends Model
     
     // mendefinisikan relasi ke model course
     public function course(){
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(Cources::class, 'course_id');
     }
 }

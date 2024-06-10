@@ -60,12 +60,14 @@ class StudentController extends Controller
 
     // method untuk menampilkan halaman edit
     public function edit ($id){
+        $courses = Cources::all();
+        
         // cari student berdasarkan id
         $student = Student::find($id); // SELECT * FROM students WHERE id = $id;
 
         // kirim student ke view edit
         return view('admin.contents.student.edit', [
-          'student' => $student,
+          'student' => $student, 'courses' => $courses
         ]);
     }
 
